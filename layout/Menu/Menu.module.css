@@ -28,7 +28,7 @@
 	cursor: pointer;
 	text-transform: uppercase;
 
-	color: var(--gray-dark);
+	color: var(--gray-dark200);
 
 	font-size: 12px;
 
@@ -63,7 +63,7 @@
 
 	cursor: pointer;
 
-	color: var(--gray-dark);
+	color: var(--gray-dark200);
 
 	font-size: 14px;
 	font-weight: 500;
