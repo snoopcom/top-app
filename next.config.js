@@ -1,17 +1,17 @@
 module.exports = {
-	webpack5: false,
-	images: {
-		domains: ['courses-top.ru']
-	},
-	webpack(config) {
-		config.module.rules.push({
-			test: /\.svg$/,
-			issuer: {
-				test: /\.(js|ts)x?$/,
-			},
-			use: ['@svgr/webpack'],
-		});
+  images: {
+    domains: ['courses-top.ru'],
+  },
+  webpack5: false,
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/,
+      issuer: {
+        test: /\.(js|ts)x?$/,
+      },
+      use: ['@svgr/webpack'],
+    });
 
-		return config;
-	},
+    return config;
+  },
 };
