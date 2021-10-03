@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import styles from './TopPageComponent.module.css';
 import { TopPageComponentProps } from './TopPageComponent.props';
 import { Advantages, Htag, Product, Sort, Tag } from '../../components';
@@ -20,6 +20,10 @@ export const TopPageComponent = ({
     }
   );
 
+  useEffect(() => {
+    dispatchSort({ type: 'reset', initialState: products });
+  }, [products]);
+
   const setSort = (sort: SortEnum) => {
     dispatchSort({ type: sort });
   };
@@ -27,9 +31,9 @@ export const TopPageComponent = ({
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>
-        <Htag tag='h1'>{page.title}</Htag>
+        <Htag tag="h1">{page.title}</Htag>
         {products && (
-          <Tag color='gray' size='m'>
+          <Tag color="gray" size="m">
             {products.length}
           </Tag>
         )}
@@ -42,9 +46,9 @@ export const TopPageComponent = ({
           ))}
       </div>
       <div className={styles.hhTitle}>
-        <Htag tag='h2'>Вакансии - {page.category}</Htag>
+        <Htag tag="h2">Вакансии - {page.category}</Htag>
         {products && (
-          <Tag color='red' size='m'>
+          <Tag color="red" size="m">
             hh.ru
           </Tag>
         )}
@@ -54,7 +58,7 @@ export const TopPageComponent = ({
       )}
       {page.advantages && page.advantages.length > 0 && (
         <>
-          <Htag tag='h2'>Преимущества</Htag>
+          <Htag tag="h2">Преимущества</Htag>
           <Advantages advantages={page.advantages} />
         </>
       )}
@@ -64,9 +68,9 @@ export const TopPageComponent = ({
           dangerouslySetInnerHTML={{ __html: page.seoText }}
         />
       )}
-      <Htag tag='h2'>Получаемые навыки</Htag>
+      <Htag tag="h2">Получаемые навыки</Htag>
       {page.tags.map((tag) => (
-        <Tag key={tag} color='primary'>
+        <Tag key={tag} color="primary">
           {tag}
         </Tag>
       ))}
