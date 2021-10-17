@@ -40,18 +40,11 @@
 .hr,
 .description,
 .actions {
-	grid-column: start/ end;
+	grid-column: start / end;
 }
 
 .feature {
 	grid-column: start / middle;
-}
-
-.advBlock {
-	grid-column: middle / end;
-
-	font-size: 16px;
-	line-height: 22px;
 }
 
 .logo img {
@@ -67,7 +60,7 @@
 }
 
 .category {
-	margin-top: 5px;
+	margin-top: 7px;
 }
 
 .price,
@@ -94,8 +87,8 @@
 .description {
 	margin-bottom: 15px;
 
-	font-size: 14px;
-	line-height: 19px;
+	font-size: 16px;
+	line-height: 24px;
 }
 
 .priceTitle,
@@ -110,6 +103,12 @@
 	margin-left: 20px;
 }
 
+.advBlock {
+	font-size: 16px;
+	line-height: 22px;
+	grid-column: middle / end;
+}
+
 .advTitle {
 	margin-bottom: 5px;
 
@@ -120,26 +119,25 @@
 	margin-bottom: 20px;
 	padding-left: 15px;
 
-	border-left: 2px solid var(--green);
+	border-left: 2px solid #1DC37E;
 }
 
 .disadvantages {
 	padding-left: 15px;
 
-	border-left: 2px solid var(--orange);
+	border-left: 2px solid var(--red);
 }
 
 .characteristics {
 	display: grid;
-	grid-template-columns: auto 1fr auto;
-
 	align-items: baseline;
-	gap: 10px;
 
 	padding-right: 60px;
 
 	font-size: 16px;
 	line-height: 32px;
+	grid-template-columns: auto 1fr auto;
+	gap: 10px;
 }
 
 .characteristicsName {
@@ -152,15 +150,9 @@
 	border-bottom: 1px dashed var(--gray-light);
 }
 
-.closed {
+.reviews {
 	overflow: hidden;
 
-	max-height: 0;
-	padding: 0;
-}
-
-.opened {
-	max-height: auto;
 	padding: 30px;
 }
 
@@ -180,7 +172,6 @@
 			'description description description description description description description'
 			'feature feature feature feature feature feature feature'
 			'advBlock advBlock advBlock advBlock advBlock advBlock advBlock'
-			'hr2 hr2 hr2 hr2 hr2 hr2 hr2'
 			'hr2 hr2 hr2 hr2 hr2 hr2 hr2'
 			'actions actions actions actions actions actions actions';
 	}
@@ -244,7 +235,7 @@
 	}
 
 	.hr2 {
-		grid-area: hr;
+		grid-area: hr2;
 	}
 
 	.actions {
@@ -286,7 +277,7 @@
 	.product {
 		grid-template-columns: 1fr;
 		grid-template-areas:
-			'logo  '
+			'logo'
 			'title'
 			'tags'
 			'price'
@@ -294,7 +285,7 @@
 			'credit'
 			'creditTitle'
 			'rating'
-			'ratingTitle'
+			'rateTitle'
 			'hr'
 			'description'
 			'feature'

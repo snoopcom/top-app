@@ -6,6 +6,7 @@ import { HhData } from '../../components/HhData/HhData';
 import { TopLevelCategory } from '../../interfaces/page.interface';
 import { SortEnum } from '../../components/Sort/Sort.props';
 import { sortReducer } from './sort.reducer';
+import { useScrollY } from '../../hooks/useScrollY';
 
 export const TopPageComponent = ({
   page,
@@ -20,6 +21,8 @@ export const TopPageComponent = ({
     }
   );
 
+  const y = useScrollY();
+
   useEffect(() => {
     dispatchSort({ type: 'reset', initialState: products });
   }, [products]);
@@ -30,6 +33,7 @@ export const TopPageComponent = ({
 
   return (
     <div className={styles.wrapper}>
+      {y}
       <div className={styles.title}>
         <Htag tag="h1">{page.title}</Htag>
         {products && (
@@ -42,7 +46,7 @@ export const TopPageComponent = ({
       <div>
         {sortedProducts &&
           sortedProducts.map((product) => (
-            <Product key={product._id} product={product} />
+            <Product key={product._id} product={product} layout />
           ))}
       </div>
       <div className={styles.hhTitle}>
