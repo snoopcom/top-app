@@ -33,6 +33,7 @@ export const Product = motion(
           behavior: 'smooth',
           block: 'start',
         });
+        reviewRef.current?.focus();
       };
 
       return (
@@ -127,14 +128,19 @@ export const Product = motion(
             variants={variants}
             initial="hidden"
           >
-            <Card ref={reviewRef} color="blue" className={styles.reviews}>
+            <Card
+              ref={reviewRef}
+              color="blue"
+              className={styles.reviews}
+              tabIndex={isReviewOpened ? 0 : -1}
+            >
               {product.reviews.map((review) => (
                 <div key={review._id}>
                   <Review review={review} />
                   <Divider />
                 </div>
               ))}
-              <ReviewForm productId={product._id} />
+              <ReviewForm productId={product._id} isOpened={isReviewOpened} />
             </Card>
           </motion.div>
         </div>
