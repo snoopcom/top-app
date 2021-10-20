@@ -8,8 +8,8 @@ import { Tag } from '../Tag/Tag';
 import { Button } from '../Button/Button';
 import { declOfNum, priceRu } from '../../helpers/helpers';
 import { Divider } from '../Divider/Divider';
-import Image from 'next/image';
 import { Review } from '../Review/Review';
+import Image from 'next/image';
 import { ReviewForm } from '../ReviewForm/ReviewForm';
 import { motion } from 'framer-motion';
 
