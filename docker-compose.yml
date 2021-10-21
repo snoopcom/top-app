@@ -2,7 +2,7 @@ version: '3'
 services:
   app:
     image: docker.pkg.github.com/snoopcom/top-app/top-app:develop
-    container_name: top-app-demo
+    container_name: top-app
     restart: always
     ports:
       - 3000:3000
