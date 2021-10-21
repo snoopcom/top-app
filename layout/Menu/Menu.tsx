@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, KeyboardEvent } from 'react';
 import cn from 'classnames';
 import { AppContext } from '../../context/app.context';
 import { FirstLevelMenuItem, PageItem } from '../../interfaces/menu.interface';
@@ -43,6 +43,13 @@ export const Menu = (): JSX.Element => {
       );
   };
 
+  const openSecondLevelKey = (key: KeyboardEvent, secondCategory: string) => {
+    if (key.code === 'Space' || key.code === 'Enter') {
+      key.preventDefault();
+      openSecondLevel(secondCategory);
+    }
+  };
+
   const buildFirstLevel = () => {
     return (
       <>
@@ -81,6 +88,10 @@ export const Menu = (): JSX.Element => {
           return (
             <div key={item._id.secondCategory}>
               <div
+                tabIndex={0}
+                onKeyDown={(key: KeyboardEvent) =>
+                  openSecondLevelKey(key, item._id.secondCategory)
+                }
                 className={styles.secondLevel}
                 onClick={() => openSecondLevel(item._id.secondCategory)}
               >
@@ -95,7 +106,11 @@ export const Menu = (): JSX.Element => {
                   [styles.secondLevelBlockOpened]: item.isOpened,
                 })}
               >
-                {buildThirdLevel(item.pages, menuItem.route)}
+                {buildThirdLevel(
+                  item.pages,
+                  menuItem.route,
+                  item.isOpened ?? false
+                )}
               </motion.div>
             </div>
           );
@@ -104,11 +119,16 @@ export const Menu = (): JSX.Element => {
     );
   };
 
-  const buildThirdLevel = (pages: PageItem[], route: string) => {
+  const buildThirdLevel = (
+    pages: PageItem[],
+    route: string,
+    isOpened: boolean
+  ) => {
     return pages.map((page) => (
       <motion.div key={page._id} variants={variantsChildren}>
         <Link href={`/${route}/${page.alias}`}>
           <a
+            tabIndex={isOpened ? 0 : -1}
             className={cn(styles.thridLevel, {
               [styles.thridLevelActive]:
                 `/${route}/${page.alias}` === router.asPath,

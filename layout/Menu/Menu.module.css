@@ -29,6 +29,7 @@
 	text-transform: uppercase;
 
 	color: var(--gray-dark200);
+	outline-offset: -1px;
 
 	font-size: 12px;
 
@@ -56,6 +57,7 @@
 	cursor: pointer;
 
 	color: var(--gray-dark200);
+	outline-offset: -1px;
 
 	font-size: 14px;
 	font-weight: 500;

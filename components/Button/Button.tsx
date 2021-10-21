@@ -3,7 +3,6 @@ import ArrowIcon from './arrow.svg';
 import styles from './Button.module.css';
 import cn from 'classnames';
 import { motion, useMotionValue } from 'framer-motion';
-import { useEffect } from 'react';
 
 export const Button = ({
   appearance,
@@ -13,10 +12,6 @@ export const Button = ({
   ...props
 }: ButtonProps): JSX.Element => {
   const scale = useMotionValue(1);
-
-  useEffect(() => {
-    scale.onChange((e) => console.log(e));
-  }, []);
 
   return (
     <motion.button

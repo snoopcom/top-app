@@ -4,7 +4,6 @@ import cn from 'classnames';
 
 export const ButtonIcon = ({
   appearance,
-  children,
   icon,
   className,
   ...props
